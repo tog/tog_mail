@@ -1,0 +1,15 @@
+<h2><%=h @message.subject %></h2>
+<p>
+  <b>From:</b>
+  <%=h @message.from.login %>
+</p>
+
+<p>
+  <b>Content:</b>
+  <%= @message.content %>
+</p>
+
+<% form_tag admin_message_path(@message), :method => :delete do -%>
+  <%= submit_tag "Delete this entry", :disable_with => "Please wait...", :type => "image", :src =>"/images/admin/buttons/delete.png" %>
+  <%= link_to "Reply", reply_admin_message_path(@message) unless current_user == @message.from %>
+<% end -%>

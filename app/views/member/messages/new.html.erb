@@ -1,0 +1,45 @@
+<h2><%= link_to "TogMail", member_messages_path %> / Compose a new message</h2>
+<%= error_messages_for :message %>
+<% form_for :message, :url => member_messages_path  do |f| %>
+<dl class="cols clearfix">
+  <dt><label for="from">From</label></dt>
+  <dd><%= @from.profile.full_name %></dd>
+
+  <dt><label for="to">To</label></dt>
+  <dd>
+    <% if @to %>
+      <%= @to.profile.full_name %>
+			<%= f.hidden_field :to_user_id, :value => @to.id %>
+    <% else %>
+    <select name="message[to_user_id]">
+       <option value="0">
+          Select...
+       </option>
+       <optgroup label="Friends">
+          <%= options_from_collection_for_select(@from.profile.friends, "id", "full_name") %>
+       </optgroup>
+       <optgroup label="Followers">
+          <%= options_from_collection_for_select(@from.profile.followers, "id", "full_name") %>
+       </optgroup>
+       <optgroup label="Followings">
+          <%= options_from_collection_for_select(@from.profile.followings, "id", "full_name") %>
+       </optgroup>
+    </select>
+    <% end %>  	
+  </dd>
+
+  <dt><label for="subject">Subject</label></dt>
+  <dd><%= f.text_field :subject %></dd>
+
+  <dt><label for="content">Content</label></dt>
+  <dd><%= f.text_area :content, :size => '80x10' %></dd>
+
+    <dt>&nbsp;</dt>
+    <dd>
+      <div class="clearfix">
+        <%= submit_tag 'Send message', :class => "button mainaction" %>
+      </div>
+    </dd>
+
+</dl>
+<% end %>

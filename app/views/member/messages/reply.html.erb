@@ -1,0 +1,19 @@
+<h2><%= link_to "TogMail", admin_messages_path %> / Reply a message</h2>
+
+<%= error_messages_for :message %>
+<% form_for :message, :url => admin_messages_path  do |f| %>
+  <%= f.hidden_field :to_user_id, :value => @reply_to.from.id %>
+   <fieldset>
+      <label>From <%= current_user.profile.full_name %></label>
+      <label>To <%= @reply_to.from.profile.full_name %></label>
+
+      <% subject = @reply_to.subject.starts_with?("Re:") ? @reply_to.subject : "Re: #{@reply_to.subject}" %>
+      <label>Subject <%= f.text_field :subject, :value => subject %></label>
+
+      <%= @reply_to.from.profile.full_name %> said:<br/>
+      <p><%= @reply_to.content %></p>
+
+      <label>Content <%= f.text_area :content %></label>
+      <%= f.submit "Send message" %>
+   </fieldset>
+<% end %>
