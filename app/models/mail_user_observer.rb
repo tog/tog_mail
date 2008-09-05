@@ -1,4 +1,4 @@
-class MailFoldersObserver  < ActiveRecord::Observer
+class MailUserObserver  < ActiveRecord::Observer
   observe :user
   def after_save(user)
     if user.recently_activated?
@@ -7,7 +7,7 @@ class MailFoldersObserver  < ActiveRecord::Observer
         Folder.new(:name => folder_type,
         :deletable => false,
         :folder_type => folder_type,
-        :user => user).save! 
+        :user => user).save!
       } if Tog::Config["plugins.tog_mail.messages.default_folders"]
     end
   end
