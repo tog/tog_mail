@@ -31,19 +31,16 @@ class Member::MessagesController < Member::BaseController
   end
 
   def create
-    puts '-------> con el 1'
     to_user = User.find(params[:message][:to_user_id])
-    puts '-------> con el 2'
     @message = Message.new(
     :from     => current_user,
     :to       => to_user,
     :subject  => sanitize(params[:message][:subject]),
     :content  => sanitize(params[:message][:content])
     )
-    puts '-------> con el 3'
     respond_to do |format|
       if @message.dispatch!
-        flash[:notice] = 'Message was successfully delivered.'
+        flash[:ok] = 'Message was successfully delivered.'
         format.html { redirect_back_or_default(member_messages_path) }
         format.xml  { render :xml => @message, :status => :created, :location => admin_message_path(:id => @message) }
       else
