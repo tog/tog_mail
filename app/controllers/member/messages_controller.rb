@@ -42,7 +42,7 @@ class Member::MessagesController < Member::BaseController
       if @message.dispatch!
         flash[:ok] = 'Message was successfully delivered.'
         format.html { redirect_back_or_default(member_messages_path) }
-        format.xml  { render :xml => @message, :status => :created, :location => admin_message_path(:id => @message) }
+        format.xml  { render :xml => @message, :status => :created, :location => member_message_path(:id => @message) }
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @message.errors, :status => :unprocessable_entity }
