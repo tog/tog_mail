@@ -1,4 +1,5 @@
 class Message < ActiveRecord::Base
+
   belongs_to :folder
 
   belongs_to :from, :class_name => "User", :foreign_key => "from_user_id"
@@ -9,7 +10,8 @@ class Message < ActiveRecord::Base
   validates_presence_of :to
 
   record_activity_of :from_user
-
+  acts_as_abusable
+  
   def read!
     update_attribute(:is_read, true)
   end
