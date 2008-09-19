@@ -6,8 +6,13 @@ class User < ActiveRecord::Base
   has_many :folders
   has_many :sent_messages, :class_name => "Message", :foreign_key => "from_user_id"
   has_many :received_messages, :class_name => "Message", :foreign_key => "to_user_id"
-  def messages
-    sent_messages + received_messages
+
+  def get_message(id)
+    begin
+    sent_messages.find(id)
+    rescue
+      received_messages.find(id)
+    end
   end
   
 end

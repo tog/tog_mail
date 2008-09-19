@@ -3,7 +3,7 @@ class Member::MessagesController < Member::BaseController
   include ActionView::Helpers::SanitizeHelper
 
   def show
-    @message = current_user.messages.find(params[:id])
+    @message = current_user.get_message(params[:id])
     @message.read!
     respond_to do |format|
       format.html

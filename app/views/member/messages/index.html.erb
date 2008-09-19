@@ -1,43 +1,44 @@
 <h2>TogMail</h2>
 <h3>
 <% for folder in @folder.siblings  %>
-   <%= link_to folder.name, {:controller=>"messages",:action=>"index",:id=>folder.id}, :class=>'maincolor2' -%> |
+   <%= link_to folder.name, {:controller=>"messages",:action=>"index",:id=>folder.id} -%> |
 <% end %>
 <%= link_to "Create new message",  new_member_message_url, {:class => "button mainaction add", :title => "Compose a new message"} %>
 </h3>
 
-<table>
-    <thead>
-      <tr>
-        <th>Subject</th>
-        <th>From</th>
-        <th>To</th>
-        <th>When</th>
-      </tr>
-    </thead>
-    <tfoot>
-      <tr>
-        <td colspan="5">
-          <%= will_paginate @messages %>
-        </td>
-      </tr>
-    </tfoot>
-   <%# for msg in @folder.messages%>
-   <% for msg in @messages %>
-      <tr>
-         <% cont = link_to msg.subject, member_message_path(:id => msg) %>
-         <td><%=  msg.unread? ? content_tag(:strong, cont) : cont %></td>
-         <td><%= (msg.from != current_user ) ? msg.from.login : "You" %></td>
-         <td><%= (msg.to != current_user ) ? msg.to.login : "You" %></td>
-         <td><%= msg.date %></td>
-      </tr>
-   <%end%>
-   <% if @messages.blank? %>
-      <tr>
-         <td>No messages.</td>
-         <td></td>
-         <td></td>
-      </tr>
-   <% end %>
+<table class="tableB">
+  <thead>
+    <tr>
+      <th scope="col">Subject</th>
+      <th scope="col">From</th>
+      <th scope="col">To</th>
+      <th scope="col">When</th>
+    </tr>
+  </thead>
+  <tfoot>
+    <tr>
+      <td colspan="4" class="info_results">
+        <span class="info_items"><%= page_entries_info @messages %></span>
+        <span class="pages_navigation right">
+          <%= will_paginate @messages, :container => false %>
+        </span>
+      </td>
+    </tr>
+  </tfoot>
+  <tbody>
+  <% for msg in @messages %>
+    <tr<%= cycle(' class="pair"','') -%>>
+       <% cont = link_to msg.subject, member_message_path(:id => msg) %>
+       <td><%=  msg.unread? ? content_tag(:strong, cont) : cont %></td>
+       <td><%= (msg.from != current_user ) ? msg.from.login : "You" %></td>
+       <td><%= (msg.to != current_user ) ? msg.to.login : "You" %></td>
+       <td><%= msg.date %></td>
+    </tr>
+  <%end%>
+  <% if @messages.blank? %>
+    <tr>
+       <td colspan="4">No messages.</td>
+    </tr>
+  <% end %>
+  <tbody>
 </table>
-
