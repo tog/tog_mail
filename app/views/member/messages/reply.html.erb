@@ -1,19 +1,36 @@
-<h2><%= link_to "TogMail", admin_messages_path %> / Reply a message</h2>
+<div class="titleB"><%= link_to "TogMail", member_messages_path %> / Reply a message</div>
+<br />
 
 <%= error_messages_for :message %>
-<% form_for :message, :url => admin_messages_path  do |f| %>
+<% form_for :message, :url => member_messages_path  do |f| %>
   <%= f.hidden_field :to_user_id, :value => @reply_to.from.id %>
    <fieldset>
-      <label>From <%= current_user.profile.full_name %></label>
-      <label>To <%= @reply_to.from.profile.full_name %></label>
-
-      <% subject = @reply_to.subject.starts_with?("Re:") ? @reply_to.subject : "Re: #{@reply_to.subject}" %>
-      <label>Subject <%= f.text_field :subject, :value => subject %></label>
-
-      <%= @reply_to.from.profile.full_name %> said:<br/>
-      <p><%= @reply_to.content %></p>
-
-      <label>Content <%= f.text_area :content %></label>
-      <%= f.submit "Send message" %>
+     <div class="fields">
+     <p>
+       <label>From</label>
+       <%= current_user.profile.full_name %><br/>
+     </p>
+     <p>
+       <label>To</label>
+       <%= @reply_to.from.profile.full_name %>
+     </p>
+     <p>
+       <% subject = @reply_to.subject.starts_with?("Re:") ? @reply_to.subject : "Re: #{@reply_to.subject}" %>
+       <label>Subject</label>
+       <%= f.text_field :subject, :value => subject, :class=>"fieldbox wide" %>
+     </p>
+     <p>
+      <label><%= @reply_to.from.profile.full_name %> said</label>
+      <%= @reply_to.content %>
+     </p>
+     <p>
+       <label for="message_content">Content</label>
+       <%= f.text_area :content, :class=>"fieldbox wide" %>
+     </p>
+     </div>
    </fieldset>
+   <div class="actions">
+     <%= f.submit "Send message", :class=>"button mainaction" %>
+   </div>
+   
 <% end %>

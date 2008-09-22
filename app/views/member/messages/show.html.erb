@@ -1,15 +1,21 @@
-<h2><%=h @message.subject %></h2>
+<div class="titleB"><%=h @message.subject %></div>
+<br />
 <p>
-  <b>From:</b>
+  <strong>From:</strong>
   <%=h @message.from.login %>
+  <br/>
+  <strong>To:</strong>
+  <%=h @message.to.login %>
 </p>
 
 <p>
-  <b>Content:</b>
+  <strong>Content:</strong>
   <%= @message.content %>
 </p>
 
-<% form_tag admin_message_path(@message), :method => :delete do -%>
-  <%= submit_tag "Delete this entry", :disable_with => "Please wait...", :type => "image", :src =>"/images/admin/buttons/delete.png" %>
-  <%= link_to "Reply", reply_admin_message_path(@message) unless current_user == @message.from %>
+<% form_tag member_message_path(@message), :method => :delete do -%>
+  <div class="actions">
+    <%= link_to "Reply", reply_member_message_path(@message), :class=>"button mainaction" unless current_user == @message.from %>
+    <%= submit_tag "Delete this entry ", :disable_with => "Please wait...", :class=>"button delete" %>
+  </div>
 <% end -%>
