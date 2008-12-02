@@ -23,7 +23,7 @@ class Member::MessagesController < Member::BaseController
 
   def new
     @from = current_user
-    @to = User.find(params[:user_id]) if params[:user_id]
+    @to = User.active.find(params[:user_id]) if params[:user_id]
     respond_to do |format|
       format.html
       format.xml  { render :xml => @message }
@@ -31,7 +31,7 @@ class Member::MessagesController < Member::BaseController
   end
 
   def create
-    to_user = User.find(params[:message][:to_user_id])
+    to_user = User.active.find(params[:message][:to_user_id])
     @message = Message.new(
     :from     => current_user,
     :to       => to_user,
