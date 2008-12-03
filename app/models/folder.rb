@@ -2,8 +2,6 @@ class Folder < ActiveRecord::Base
   belongs_to :owner, :class_name => "User", :foreign_key => "user_id"
   belongs_to :user
   
-  record_activity_of :user
-  
   has_many :messages, :order => "created_at DESC" do
     def unread
      find(:all, :conditions => ["is_read = ?", false])
