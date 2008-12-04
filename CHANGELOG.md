@@ -1,5 +1,6 @@
 Edge
 ----
+* Ticket #111. undefined method `white_list_sanitizer' for Member::MessagesController:Class
 
 0.3.0
 ----

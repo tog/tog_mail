@@ -9,7 +9,6 @@ class Message < ActiveRecord::Base
   validates_presence_of :from
   validates_presence_of :to
 
-  record_activity_of :from_user
   acts_as_abusable
   
   def read!

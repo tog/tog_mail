@@ -1,1 +1,18 @@
-todo readme
+= tog_mail
+
+internal messaging system
+
+== Included functionality
+
+# Multiple folders
+# Send messages to your friend list
+# Send messages to a given user
+
+
+== Authors and credits
+
+Authors::   Roberto Salicio, Alberto Molpeceres, Aitor Garcia
+Website::   http://www.toghq.com
+
+
+Want to discuss, request features, ask questions? Just visit {www.toghq.com}[http://www.toghq.com].

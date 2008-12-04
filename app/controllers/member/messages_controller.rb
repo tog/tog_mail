@@ -1,6 +1,11 @@
 class Member::MessagesController < Member::BaseController
 
-  include ActionView::Helpers::SanitizeHelper
+  if Rails::VERSION::STRING >= '2.2'
+    extend  ActionView::Helpers::SanitizeHelper::ClassMethods
+    include ActionView::Helpers::SanitizeHelper
+  else
+    include ActionView::Helpers::SanitizeHelper
+  end
 
   def show
     @message = current_user.get_message(params[:id])
