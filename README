@@ -8,6 +8,24 @@ internal messaging system
 # Send messages to your friend list
 # Send messages to a given user
 
+== Usage
+
+tog_mail comes with a complete interface for sending messages, manage your inbox, etc. But you still can send messages using tog_mail programatically or put link to send messages in any other places.
+
+=== Send messages programatically
+
+@message = Message.new(
+:from     => current_user,
+:to       => to_user,
+:subject  => sanitize(params[:message][:subject]),
+:content  => sanitize(params[:message][:content])
+)
+@message.dispatch!
+
+=== Link to send a mail to a given user
+
+<%= link_to 'Send message', member_new_message_to_path(user) %>
+
 
 == Authors and credits
 
