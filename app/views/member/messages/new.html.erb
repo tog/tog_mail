@@ -1,46 +1,46 @@
-<div class="titleB"><%= link_to "TogMail", member_messages_path %> / Compose a new message</div>
+<div class="titleB"><%= link_to I18n.t("tog_mail.plugin_name"), member_messages_path %> / <%= I18n.t("tog_mail.member.compose_new_message") %></div>
 <br/>
 <%= error_messages_for :message %>
 <% form_for :message, :url => member_messages_path  do |f| %>
   <fieldset>
     <div class="fields">
       <p>
-        <label>From</label>
+        <label><%= I18n.t("tog_mail.model.from") %></label>
         <%= @from.profile.full_name %>
       </p>
       <p>
-        <label for="message_to">To</label>
+        <label for="message_to"><%= I18n.t("tog_mail.model.to") %></label>
         <% if @to %>
           <%= @to.profile.full_name %>
           <%= f.hidden_field :to_user_id, :value => @to.id %>
         <% else %>
           <select name="message[to_user_id]" id="message_to" class="fieldbox">
              <option value="0">
-                Select...
+                <%= I18n.t("tog_mail.member.select") %>
              </option>
-             <optgroup label="Friends">
+             <optgroup label="<%= I18n.t("tog_mail.member.friends") %>">
                 <%= options_from_collection_for_select(@from.profile.friends, "id", "full_name") %>
              </optgroup>
-             <optgroup label="Followers">
+             <optgroup label="<%= I18n.t("tog_mail.member.followers") %>">
                 <%= options_from_collection_for_select(@from.profile.followers, "id", "full_name") %>
              </optgroup>
-             <optgroup label="Followings">
+             <optgroup label="<%= I18n.t("tog_mail.member.followings") %>">
                 <%= options_from_collection_for_select(@from.profile.followings, "id", "full_name") %>
              </optgroup>
           </select>
         <% end %>
       </p>
       <p>
-        <label for="message_subject">Subject</label>
+        <label for="message_subject"><%= I18n.t("tog_mail.model.subject") %></label>
         <%= f.text_field :subject, :class => "fieldbox wide" %>
       </p>
       <p>
-        <label for="message_content">Content</label>
+        <label for="message_content"><%= I18n.t("tog_mail.model.content") %></label>
         <%= f.text_area :content, :size => '80x10', :class => "fieldbox wide" %>
       </p>
     </div>
   </fieldset>
   <div class="actions">
-    <%= submit_tag 'Send message', :class => "button mainaction" %>
+    <%= submit_tag I18n.t("tog_mail.member.send"), :class => "button mainaction" %>
   </div>
 <% end %>

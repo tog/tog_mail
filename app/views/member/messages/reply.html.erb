@@ -1,4 +1,4 @@
-<div class="titleB"><%= link_to "TogMail", member_messages_path %> / Reply a message</div>
+<div class="titleB"><%= link_to I18n.t("tog_mail.plugin_name"), member_messages_path %> / <%= I18n.t("tog_mail.member.reply_message") %></div>
 <br />
 
 <%= error_messages_for :message %>
@@ -7,30 +7,30 @@
    <fieldset>
      <div class="fields">
      <p>
-       <label>From</label>
+       <label><%= I18n.t("tog_mail.model.from") %></label>
        <%= current_user.profile.full_name %><br/>
      </p>
      <p>
-       <label>To</label>
+       <label><%= I18n.t("tog_mail.model.to") %></label>
        <%= @reply_to.from.profile.full_name %>
      </p>
      <p>
-       <% subject = @reply_to.subject.starts_with?("Re:") ? @reply_to.subject : "Re: #{@reply_to.subject}" %>
-       <label>Subject</label>
+       <% subject = @reply_to.subject.starts_with?("Re:") ? @reply_to.subject : "#{I18n.t("tog_mail.member.reply_subject_mark")}: #{@reply_to.subject}" %>
+       <label><%= I18n.t("tog_mail.model.subject") %></label>
        <%= f.text_field :subject, :value => subject, :class=>"fieldbox wide" %>
      </p>
      <p>
-      <label><%= @reply_to.from.profile.full_name %> said</label>
+      <label><%= @reply_to.from.profile.full_name %> <%= I18n.t("tog_mail.member.said") %></label>
       <%= @reply_to.content %>
      </p>
      <p>
-       <label for="message_content">Content</label>
+       <label for="message_content"><%= I18n.t("tog_mail.model.content") %></label>
        <%= f.text_area :content, :class=>"fieldbox wide" %>
      </p>
      </div>
    </fieldset>
    <div class="actions">
-     <%= f.submit "Send message", :class=>"button mainaction" %>
+     <%= f.submit I18n.t("tog_mail.member.send"), :class=>"button mainaction" %>
    </div>
    
 <% end %>

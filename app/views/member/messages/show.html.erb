@@ -1,21 +1,21 @@
 <div class="titleB"><%=h @message.subject %></div>
 <br />
 <p>
-  <strong>From:</strong>
+  <strong><%= I18n.t("tog_mail.model.from") %>:</strong>
   <%=h @message.from.login %>
   <br/>
-  <strong>To:</strong>
+  <strong><%= I18n.t("tog_mail.model.to") %>:</strong>
   <%=h @message.to.login %>
 </p>
 
 <p>
-  <strong>Content:</strong>
+  <strong><%= I18n.t("tog_mail.model.content") %>:</strong>
   <%= @message.content %>
 </p>
 
 <% form_tag member_message_path(@message), :method => :delete do -%>
   <div class="actions">
-    <%= link_to "Reply", reply_member_message_path(@message), :class=>"button mainaction" unless current_user == @message.from %>
-    <%= submit_tag "Delete this entry ", :disable_with => "Please wait...", :class=>"button delete" %>
+    <%= link_to I18n.t("tog_mail.member.reply"), reply_member_message_path(@message), :class=>"button mainaction" unless current_user == @message.from %>
+    <%= submit_tag I18n.t("tog_mail.member.delete"), :disable_with => I18n.t("tog_mail.member.wait"), :class=>"button delete" %>
   </div>
 <% end -%>

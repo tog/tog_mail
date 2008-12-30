@@ -1,0 +1,31 @@
+# {{xxx}
+es:
+  tog_mail:
+    plugin_name: Mail
+    plugin_description: Sistema de mensajería interna
+    model:
+      subject: Asunto
+      content: Contenido
+      from: De
+      to: Para
+      when: Cuando
+    member:
+      message_sent: El mensaje se ha enviado correctamente
+      create_new_message: Crear un nuevo mensaje
+      compose_new_message: Escribir un nuevo mensaje
+      no_messages: No hay mensajes
+      you: Tu
+      select: Selecciona...
+      friends: Amigos
+      followers: Seguidores
+      followings: Seguidos
+      send: Enviar mensaje
+      reply_message: Contestar un mensaje
+      said: dijo
+      reply: Contestar
+      reply_subject_mark: Re
+      delete: Eliminar mensaje
+      wait: Por favor espere...
+
+
+

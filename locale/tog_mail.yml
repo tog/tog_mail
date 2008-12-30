@@ -1,0 +1,31 @@
+# {{xxx}
+en:
+  tog_mail:
+    plugin_name: Mail
+    plugin_description: Internal mailing system
+    model:
+      subject: Subject
+      content: Content
+      from: From
+      to: To
+      when: When
+    member:
+      message_sent: Message was successfully delivered
+      create_new_message: Create new message
+      compose_new_message: Compose a new message
+      no_messages: No messages
+      you: You
+      select: Select...
+      friends: Friends
+      followers: Followers
+      followings: Followings
+      send: Send message
+      reply_message: Reply a message
+      said: said
+      reply: Reply
+      reply_subject_mark: Re
+      delete: Delete message
+      wait: Please wait...
+      
+      
+
