@@ -1,5 +1,6 @@
 Edge
 ----
+* Every internal message should send a regular email copy to the recipient.
 
 0.4.0
 ----

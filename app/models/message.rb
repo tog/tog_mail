@@ -36,5 +36,7 @@ class Message < ActiveRecord::Base
     
     self.folder = self.to.inbox
     self.save!
+    
+    MessageMailer.deliver_email_copy(self)
   end
 end
