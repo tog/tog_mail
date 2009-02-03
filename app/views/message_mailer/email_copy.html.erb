@@ -1,6 +1,6 @@
-Hi <%= @to_login %>,
+<%= I18n.t('tog_mail.mailer.greeting')%> <%= @to_login %>,
 
-You've been sent a Flickr Mail from <%= @from_login %>:
+<%= I18n.t('tog_mail.mailer.message_received')%> '<%= @from_login %>':
 
 ------------------------------------------------------------
 

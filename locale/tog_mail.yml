@@ -9,6 +9,9 @@ en:
       from: From
       to: To
       when: When
+    mailer:
+      greeting: Hi
+      message_received: You've been sent the following Message from
     member:
       message_sent: Message was successfully delivered
       create_new_message: Create new message

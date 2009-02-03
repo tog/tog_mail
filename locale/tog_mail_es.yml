@@ -9,6 +9,9 @@ es:
       from: De
       to: Para
       when: Cuando
+    mailer:
+      greeting: Hola
+      message_received: Has recibido el siguiente mensaje de 
     member:
       message_sent: El mensaje se ha enviado correctamente
       create_new_message: Crear un nuevo mensaje
