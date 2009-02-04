@@ -26,7 +26,7 @@ class Message < ActiveRecord::Base
   end
 
   def date
-    created_at.strftime("%d/%m/%Y %H:%M")
+    I18n.l(created_at, :format => :short)
   end
   def dispatch!
     copy = self.clone
