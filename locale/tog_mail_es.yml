@@ -14,6 +14,7 @@ es:
       message_received: Has recibido el siguiente mensaje de 
     member:
       message_sent: El mensaje se ha enviado correctamente
+      user_not_found: Debes decirnos a quién le quieres enviar tu mensaje.
       create_new_message: Crear un nuevo mensaje
       compose_new_message: Escribir un nuevo mensaje
       no_messages: No hay mensajes

@@ -14,6 +14,7 @@ en:
       message_received: You've been sent the following Message from
     member:
       message_sent: Message was successfully delivered
+      user_not_found: You need to tell us who you want to send your message to.
       create_new_message: Create new message
       compose_new_message: Compose a new message
       no_messages: No messages
