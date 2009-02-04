@@ -1,5 +1,7 @@
-# {{xxx}
 en:
+  interface:
+    member:
+      messages: Messages
   tog_mail:
     plugin_name: Mail
     plugin_description: Internal mailing system
@@ -26,6 +28,3 @@ en:
       reply_subject_mark: Re
       delete: Delete message
       wait: Please wait...
-      
-      
-
