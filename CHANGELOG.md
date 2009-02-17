@@ -1,5 +1,8 @@
 Edge
 ----
+
+0.4.2
+----
 * Ticket #118. i18n in navigation tabs
 * Every internal message should send a regular email copy to the recipient.
 * Error sending message without selecting target user [#127 status:resolved]
