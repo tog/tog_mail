@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
-class MessageTest < Test::Unit::TestCase
+class MessageTest < ActiveSupport::TestCase
   context "A Message" do
 
     setup do
