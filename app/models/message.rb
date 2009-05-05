@@ -5,6 +5,9 @@ class Message < ActiveRecord::Base
   belongs_to :from, :class_name => "User", :foreign_key => "from_user_id"
   belongs_to :to,   :class_name => "User", :foreign_key => "to_user_id"
   
+  named_scope :unread, :conditions => ["is_read = ?", false]
+  named_scope :read, :conditions => ["is_read = ?", true]
+  
   validates_presence_of :folder
   validates_presence_of :from
   validates_presence_of :to
