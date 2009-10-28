@@ -1,0 +1,34 @@
+pt-BR:
+  interface:
+    member:
+      messages: Mensagens
+  tog_mail:
+    plugin_name: Mensagens
+    plugin_description: Internal mailing system
+    model:
+      subject: Assunto
+      content: Conteúdo
+      from: De
+      to: Para
+      when: Quando
+    mailer:
+      greeting: Olá
+      message_received: Você enviou a seguinte mensagem de
+    member:
+      message_sent: Mensagem enviada com sucesso
+      user_not_found: Você precisa informar pra quem quer enviar a mensagem.
+      create_new_message: Criar nova mensagem
+      compose_new_message: Escrever nova mensagem
+      no_messages: Sem mensagens
+      you: Você
+      select: Selecionar...
+      friends: Amigos
+      followers: Seguidores
+      followings: Seguindo
+      send: Enviar mensagem
+      reply_message: Responder a mensagem
+      said: disse
+      reply: Responder
+      reply_subject_mark: Re
+      delete: Apagar mensagem
+      wait: Por favor aguarde...
