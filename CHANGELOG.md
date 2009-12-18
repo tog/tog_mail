@@ -1,6 +1,9 @@
 Edge
 ----
 
+0.6.0
+----
+
 * Added translations for Brazilian Portuguese
 
 0.5.4
